@@ -1,16 +1,80 @@
+// // toolbar.js
+
+// import { DraggableNode } from './draggableNode';
+
+// export const PipelineToolbar = () => {
+
+//     return (
+//         <div style={{ padding: '10px',background:"red" }}>
+//             <div style={{ marginTop: '20px', display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+//                 <DraggableNode type='customInput' label='Input' />
+//                 <DraggableNode type='llm' label='LLM' />
+//                 <DraggableNode type='customOutput' label='Output' />
+//                 <DraggableNode type='text' label='Text' />
+//                 <DraggableNode type="openai" label="OpenAI" />
+//                 <DraggableNode type="conditionalNode" label="Conditional Node" />
+//                 <DraggableNode type="delayNode" label="Delay Node" />
+//             </div>
+//         </div>
+//     );
+// };
+
+
 // toolbar.js
 
 import { DraggableNode } from './draggableNode';
 
 export const PipelineToolbar = () => {
+    const toolbarStyle = {
+        padding: 12,
+        background: '#f7f7f7',
+        borderBottom: '1px solid #ddd',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 12
+    };
+
+    const titleStyle = {
+        fontSize: 14,
+        fontWeight: 600,
+        color: '#444',
+        textTransform: 'uppercase'
+    };
+
+    const groupStyle = {
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: 10
+    };
+
+    const itemStyle = {
+        padding: '6px 12px',
+        borderRadius: 6,
+        background: '#fff',
+        border: '1px solid #d5d5d5',
+        fontSize: 13,
+        cursor: 'grab',
+        transition: '0.15s all ease'
+    };
+
+    const renderNode = (type, label) => (
+        <div style={itemStyle}>
+            <DraggableNode type={type} label={label} />
+        </div>
+    );
 
     return (
-        <div style={{ padding: '10px' }}>
-            <div style={{ marginTop: '20px', display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-                <DraggableNode type='customInput' label='Input' />
-                <DraggableNode type='llm' label='LLM' />
-                <DraggableNode type='customOutput' label='Output' />
-                <DraggableNode type='text' label='Text' />
+        <div style={toolbarStyle}>
+            <div style={titleStyle}>Nodes</div>
+
+            <div style={groupStyle}>
+                {renderNode('customInput', 'Input')}
+                {renderNode('llm', 'LLM')}
+                {renderNode('customOutput', 'Output')}
+                {renderNode('text', 'Text')}
+                {renderNode('openai', 'OpenAI')}
+                {renderNode('conditionalNode', 'Conditional')}
+                {renderNode('delayNode', 'Delay')}
             </div>
         </div>
     );
