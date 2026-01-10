@@ -13,7 +13,10 @@ import { TextNode } from './nodes/textNode';
 import { OpenAINode } from './nodes/openaiNode';
 import { DelayNode } from './nodes/delayNode';
 import { ConditionalNode } from './nodes/conditionalNode';
+import { MathNode } from './nodes/mathNode';
 import 'reactflow/dist/style.css';
+import { ConcatNode } from './nodes/concatNode';
+import { FetchNode } from './nodes/fetchNode';
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
@@ -23,8 +26,11 @@ const nodeTypes = {
   customOutput: OutputNode,
   text: TextNode,
   openai: OpenAINode,
-  conditionalNode:ConditionalNode,
+  conditionalNode: ConditionalNode,
   delayNode: DelayNode,
+  mathNode: MathNode,
+  concatNode: ConcatNode,
+  fetchNode: FetchNode
 };
 
 const selector = (state) => ({
@@ -95,7 +101,12 @@ export const PipelineUI = () => {
 
   return (
     <>
-      <div ref={reactFlowWrapper} style={{ width: '100wv', height: '70vh' }}>
+      <div ref={reactFlowWrapper} style={{
+        width: '100vw',
+        height: '70vh',
+        background: '#fafafa',
+        borderTop: '1px solid #ddd'
+      }}>
         <ReactFlow
           nodes={nodes}
           edges={edges}

@@ -3,8 +3,8 @@
 export const SubmitButton = () => {
 
     return (
-        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-            <button type="submit">Submit</button>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', }}>
+            <button type="submit" style={{ marginTop: 8 }}>Submit</button>
         </div>
     );
 }

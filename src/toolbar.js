@@ -26,13 +26,14 @@ import { DraggableNode } from './draggableNode';
 
 export const PipelineToolbar = () => {
     const toolbarStyle = {
-        padding: 12,
-        background: '#f7f7f7',
+        padding: 10,
+        background: '#ffffff',
         borderBottom: '1px solid #ddd',
         display: 'flex',
         flexDirection: 'column',
-        gap: 12
+        gap: 8
     };
+
 
     const titleStyle = {
         fontSize: 14,
@@ -75,6 +76,9 @@ export const PipelineToolbar = () => {
                 {renderNode('openai', 'OpenAI')}
                 {renderNode('conditionalNode', 'Conditional')}
                 {renderNode('delayNode', 'Delay')}
+                {renderNode('mathNode', 'Math')}
+                {renderNode('concatNode', 'Concat')}
+                {renderNode('fetchNode', 'Fetch')}
             </div>
         </div>
     );

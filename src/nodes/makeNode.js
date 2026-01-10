@@ -9,9 +9,17 @@ export const makeNode = (config) => {
         return (
             <BaseNode
                 id={id}
-                data={data}
-                config={config}
+                // data={data}
+                // config={config}
                 onFieldChange={onFieldChange}
+                data={data}
+                config={{
+                    subtitle: config.subtitle ?? null,
+                    style: config.style ?? {},
+                    title: config.title,
+                    fields: config.fields ?? [],
+                    handles: config.handles ?? []
+                }}
             />
         );
     };
